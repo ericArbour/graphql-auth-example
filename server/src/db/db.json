@@ -1,0 +1,203 @@
+{
+  "users": [
+    {
+      "email": "member@member.com",
+      "password": "password",
+      "role": "ADMIN",
+      "verified": false,
+      "avatar": "http",
+      "createdAt": 1571213104370,
+      "id": "Z2hlvDmLOSRZGebC_Z_aA",
+      "isAdvancedUser": false,
+      "privileges": []
+    },
+    {
+      "email": "test@test.com",
+      "password": "123",
+      "role": "ADMIN",
+      "verified": false,
+      "avatar": "http",
+      "createdAt": 1585333844574,
+      "id": "uliE6l-z_gsKJVzdm0pms",
+      "isAdvancedUser": true,
+      "privileges": [
+        "ADVANCED_MOVIES"
+      ]
+    }
+  ],
+  "posts": [
+    {
+      "message": "Hello, Newman!",
+      "author": "uliE6l-z_gsKJVzdm0pms",
+      "createdAt": 1585863645351,
+      "id": "X0OP71PQP0oPX1K-Hl4k9"
+    },
+    {
+      "message": "Hello, Newman!",
+      "author": "uliE6l-z_gsKJVzdm0pms",
+      "createdAt": 1585863734518,
+      "id": "opQDdaWdvRmqBZiWudLqb"
+    },
+    {
+      "message": "Hello, Newman!",
+      "author": "uliE6l-z_gsKJVzdm0pms",
+      "createdAt": 1585863744757,
+      "id": "F1hSovXLkeGCxTCzJq1gA"
+    },
+    {
+      "message": "Hello, Newman!",
+      "author": "uliE6l-z_gsKJVzdm0pms",
+      "createdAt": 1585863749464,
+      "id": "-aL7k1euHw7xeOL9wfXLh"
+    },
+    {
+      "message": "Hello, Newman!",
+      "author": "uliE6l-z_gsKJVzdm0pms",
+      "createdAt": 1585863760328,
+      "id": "JJJ3l_cLGQBC2OK1tuPcL"
+    },
+    {
+      "message": "Hello, Newman!",
+      "author": "uliE6l-z_gsKJVzdm0pms",
+      "createdAt": 1585863774329,
+      "id": "30kieECHCAGG2CudfPE8Y"
+    },
+    {
+      "message": "Hello, Newman!",
+      "author": "uliE6l-z_gsKJVzdm0pms",
+      "createdAt": 1585863783783,
+      "id": "QfISJ4wyinjZgJUh3MOlw"
+    },
+    {
+      "message": "Hello, Newman!",
+      "author": "uliE6l-z_gsKJVzdm0pms",
+      "createdAt": 1585863800377,
+      "id": "BEomU2P6T-P8n8hOAVfOK"
+    },
+    {
+      "message": "Hello, Newman!",
+      "author": "uliE6l-z_gsKJVzdm0pms",
+      "createdAt": 1585863805540,
+      "id": "S7-ruWw-izWQuz1v1oV57"
+    },
+    {
+      "message": "Hello, Newman!",
+      "author": "uliE6l-z_gsKJVzdm0pms",
+      "createdAt": 1585864235666,
+      "id": "MKuY2Gwt-VlQJYOnLDJnl"
+    },
+    {
+      "message": "Hello, Newman!",
+      "author": "uliE6l-z_gsKJVzdm0pms",
+      "createdAt": 1585864685478,
+      "id": "HyOQYhd_c4iGkcBkaZYZh"
+    },
+    {
+      "message": "Hello, Newman!",
+      "author": "uliE6l-z_gsKJVzdm0pms",
+      "createdAt": 1585864700701,
+      "id": "2E4KmvXmwlf0a7umCMq1B"
+    },
+    {
+      "message": "Hello, Newman!",
+      "author": "uliE6l-z_gsKJVzdm0pms",
+      "createdAt": 1585864734591,
+      "id": "ofzHOjbsUe_ZeABfTWsNB"
+    },
+    {
+      "message": "Hello, Newman!",
+      "author": "uliE6l-z_gsKJVzdm0pms",
+      "createdAt": 1585864774044,
+      "id": "9uwMwevHeLl83mIgn53C8"
+    },
+    {
+      "message": "Hello, Newman!",
+      "author": "uliE6l-z_gsKJVzdm0pms",
+      "createdAt": 1585864821364,
+      "id": "GIXgSvOKbvN8wOT7QnIQ8"
+    },
+    {
+      "message": "Hello, Newman!",
+      "author": "uliE6l-z_gsKJVzdm0pms",
+      "createdAt": 1585864829398,
+      "id": "Nfejbn7tAAdJBTxa9u8rh"
+    },
+    {
+      "message": "Hello, Newman!",
+      "author": "uliE6l-z_gsKJVzdm0pms",
+      "createdAt": 1585864836997,
+      "id": "E8tKBqg634qeoHLwWN_SJ"
+    },
+    {
+      "message": "Hello, Newman!",
+      "author": "uliE6l-z_gsKJVzdm0pms",
+      "createdAt": 1585864963931,
+      "id": "0OQEwbdRRAnDOCYyL5grz"
+    },
+    {
+      "message": "Hello, Newman!",
+      "author": "uliE6l-z_gsKJVzdm0pms",
+      "createdAt": 1585864988300,
+      "id": "Wva367hTJ3jPfSwHNDK49"
+    },
+    {
+      "message": "Hello, Newman!",
+      "author": "uliE6l-z_gsKJVzdm0pms",
+      "createdAt": 1585865256763,
+      "id": "rPSBViYAYyLmMtzL5U6xg"
+    },
+    {
+      "message": "Hello!",
+      "author": "uliE6l-z_gsKJVzdm0pms",
+      "createdAt": 1585940490277,
+      "id": "VELAexYGttFFI9wMZt1T6"
+    },
+    {
+      "message": "Hello!",
+      "author": "uliE6l-z_gsKJVzdm0pms",
+      "createdAt": 1585940511960,
+      "id": "E8J4lo8phcmojTJitqmSg"
+    },
+    {
+      "message": "Hello!",
+      "author": "uliE6l-z_gsKJVzdm0pms",
+      "createdAt": 1585940566233,
+      "id": "WrGKg19UPjDKv_h0FoP1s"
+    },
+    {
+      "message": "Hello!",
+      "author": "uliE6l-z_gsKJVzdm0pms",
+      "createdAt": 1585940601028,
+      "id": "EMKwSIfnLZ52xjTMxiCoj"
+    },
+    {
+      "message": "Hello!",
+      "author": "uliE6l-z_gsKJVzdm0pms",
+      "createdAt": 1585940661760,
+      "id": "y6QWKgzULkvQo6f3miJFF"
+    },
+    {
+      "message": "Hello!",
+      "author": "uliE6l-z_gsKJVzdm0pms",
+      "createdAt": 1585940679314,
+      "id": "2R5dBnDSlfwql85fcxnHZ"
+    },
+    {
+      "message": "Hello!",
+      "author": "uliE6l-z_gsKJVzdm0pms",
+      "createdAt": 1585940710393,
+      "id": "zvGeFJpzoSh27RtVRECh3"
+    }
+  ],
+  "settings": [],
+  "movies": [
+    {
+      "name": "The Shawshank Redemption",
+      "director": "Frank Darabont",
+      "rating": 5,
+      "createdAt": 1595962228417,
+      "createdBy": "Z2hlvDmLOSRZGebC_Z_aA",
+      "id": "PEsACUlFcw1LWfYrj9iXP"
+    }
+  ]
+}

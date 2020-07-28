@@ -1,0 +1,5 @@
+Todos:
+
+1. Create basic auth server and research JWT claims
+2. Set up server side query, object, field level auth (if not done already).
+3. Set up a simple react/apollo client to showcase route level, component level, and field level auth logic.
