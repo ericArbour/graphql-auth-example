@@ -5,7 +5,7 @@ Object {
   "data": Object {
     "feed": Array [
       Object {
-        "createdAt": "12345839",
+        "createdAt": 12345839,
         "id": "1",
         "likes": 20,
         "message": "hello",

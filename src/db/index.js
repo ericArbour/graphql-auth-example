@@ -1,17 +1,18 @@
-const low = require('lowdb')
-const FileSync = require('lowdb/adapters/FileSync')
-const createModel = require('./models')
+const low = require("lowdb");
+const FileSync = require("lowdb/adapters/FileSync");
+const createModel = require("./models");
 
-const adapter = new FileSync('src/db/db.json')
-const db = low(adapter)
+const adapter = new FileSync("src/db/db.json");
+const db = low(adapter);
 
-db.defaults({ posts: [], users: [], settings: [] })
+db.defaults({ posts: [], users: [], settings: [], movies: [] });
 
 module.exports = {
   models: {
-    Settings: createModel(db, 'settings'),
-    Post: createModel(db, 'posts'),
-    User: createModel(db, 'users')
+    Settings: createModel(db, "settings"),
+    Post: createModel(db, "posts"),
+    User: createModel(db, "users"),
+    Movie: createModel(db, "movies"),
   },
-  db
-}
+  db,
+};

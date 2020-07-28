@@ -1,6 +1,11 @@
-const gql = require('graphql-tag')
+const gql = require("graphql-tag");
 
 module.exports = gql`
+  directive @date(defaultFormat: String = "mmmm d, yyyy") on FIELD_DEFINITION
+  directive @auth(role: Role, privilege: Privilege) on FIELD_DEFINITION
+
+  scalar Date
+
   enum Theme {
     DARK
     LIGHT
@@ -12,15 +17,20 @@ module.exports = gql`
     GUEST
   }
 
+  enum Privilege {
+    ADVANCED_MOVIES
+  }
+
   type User {
     id: ID!
     email: String!
     avatar: String!
     verified: Boolean!
-    createdAt: String!
+    createdAt: Date! @date
     posts: [Post]!
     role: Role!
     settings: Settings!
+    privileges: [Privilege!]!
   }
 
   type AuthUser {
@@ -32,7 +42,7 @@ module.exports = gql`
     id: ID!
     message: String!
     author: User!
-    createdAt: String!
+    createdAt: Date! @date
     likes: Int!
     views: Int!
   }
@@ -45,11 +55,23 @@ module.exports = gql`
     pushNotifications: Boolean!
   }
 
+  type Item {
+    task: String!
+  }
+
   type Invite {
     email: String!
     from: User!
-    createdAt: String!
+    createdAt: Date! @date
     role: Role!
+  }
+
+  type Movie {
+    name: String!
+    director: String!
+    rating: Int! @auth(privilege: ADVANCED_MOVIES)
+    createdAt: Date! @date
+    createdBy: User!
   }
 
   input NewPostInput {
@@ -77,6 +99,7 @@ module.exports = gql`
     email: String!
     password: String!
     role: Role!
+    isAdvancedUser: Boolean!
   }
 
   input SigninInput {
@@ -84,21 +107,33 @@ module.exports = gql`
     password: String!
   }
 
+  input MovieInput {
+    name: String!
+    director: String!
+    rating: Int!
+  }
+
   type Query {
-    me: User!
-    posts: [Post]!
-    post(id: ID!): Post!
-    userSettings: Settings!
+    me: User! @auth
+    posts: [Post]! @auth
+    post(id: ID!): Post! @auth
+    userSettings: Settings! @auth
     feed: [Post]!
+    movies: [Movie]! @auth
   }
 
   type Mutation {
-    updateSettings(input: UpdateSettingsInput!): Settings!
-    createPost(input: NewPostInput!): Post!
-    updateMe(input: UpdateUserInput!): User
-    invite(input: InviteInput!): Invite!
+    updateSettings(input: UpdateSettingsInput!): Settings! @auth
+    createPost(input: NewPostInput!): Post! @auth
+    updateMe(input: UpdateUserInput!): User @auth
+    invite(input: InviteInput!): Invite! @auth(role: ADMIN)
     signup(input: SignupInput!): AuthUser!
     signin(input: SigninInput!): AuthUser!
+    createItem(task: String!): Item!
+    createMovie(input: MovieInput!): Movie!
   }
 
-`
+  type Subscription {
+    newPost: Post! @auth
+  }
+`;
