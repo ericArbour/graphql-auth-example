@@ -1,4 +1,4 @@
-const gql = require("graphql-tag");
+const gql = require('graphql-tag');
 
 module.exports = gql`
   directive @date(defaultFormat: String = "mmmm d, yyyy") on FIELD_DEFINITION
@@ -19,11 +19,13 @@ module.exports = gql`
 
   enum Privilege {
     ADVANCED_MOVIES
+    TV
   }
 
   type User {
     id: ID!
     email: String!
+    name: String!
     avatar: String!
     verified: Boolean!
     createdAt: Date! @date
@@ -74,6 +76,14 @@ module.exports = gql`
     createdBy: User!
   }
 
+  type Show {
+    name: String!
+    showRunner: String!
+    rating: Int!
+    createdAt: Date! @date
+    createdBy: User!
+  }
+
   input NewPostInput {
     message: String!
   }
@@ -119,7 +129,8 @@ module.exports = gql`
     post(id: ID!): Post! @auth
     userSettings: Settings! @auth
     feed: [Post]!
-    movies: [Movie]! @auth
+    movies: [Movie!]! @auth
+    shows: [Show!]! @auth(privilege: TV)
   }
 
   type Mutation {

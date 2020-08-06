@@ -1,6 +1,6 @@
-const { authenticated, authorized } = require("./auth");
+const { authenticated, authorized } = require('./auth');
 
-const NEW_POST = "NEW_POST";
+const NEW_POST = 'NEW_POST';
 
 /**
  * Anything Query / Mutation resolver
@@ -27,6 +27,9 @@ module.exports = {
     },
     movies(_, __, { models }) {
       return models.Movie.findMany();
+    },
+    shows(_, __, { models }) {
+      return models.Show.findMany();
     },
   },
   Mutation: {
@@ -55,13 +58,13 @@ module.exports = {
       const existing = models.User.findOne({ email: input.email });
 
       if (existing) {
-        throw new Error("nope");
+        throw new Error('nope');
       }
       const user = models.User.createOne({
         ...input,
         verified: false,
-        avatar: "http",
-        privileges: input.isAdvancedUser ? ["ADVANCED_MOVIES"] : [],
+        avatar: 'http',
+        privileges: input.isAdvancedUser ? ['ADVANCED_MOVIES'] : [],
       });
       const token = createToken(user);
       return { token, user };
@@ -70,7 +73,7 @@ module.exports = {
       const user = models.User.findOne(input);
 
       if (!user) {
-        throw new Error("nope");
+        throw new Error('nope');
       }
 
       const token = createToken(user);
@@ -89,7 +92,7 @@ module.exports = {
   User: {
     posts(root, _, { user, models }) {
       if (root.id !== user.id) {
-        throw new Error("nope");
+        throw new Error('nope');
       }
 
       return models.Post.findMany({ author: root.id });
