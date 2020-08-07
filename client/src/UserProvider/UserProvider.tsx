@@ -19,7 +19,12 @@ type AuthUser = {
 const UserContext = createContext<null | User>(null);
 
 export function useUserContext() {
-  return useContext(UserContext);
+  const maybeUser = useContext(UserContext);
+
+  if (!maybeUser)
+    throw new Error('UserContext consumer used outside of provider.');
+
+  return maybeUser;
 }
 
 const signinMutation = gql`
@@ -40,11 +45,13 @@ type SigninProps = {
 };
 
 export default function UserProvider({ children }: SigninProps) {
-  const [signin, { data, loading, error }] = useMutation<{ signin: AuthUser }>(
+  const [user, setUser] = useState<User | null>(null);
+  const [signin, { loading, error }] = useMutation<{ signin: AuthUser }>(
     signinMutation,
     {
       onCompleted(data) {
         tokenRVar(data.signin.token);
+        setUser(data.signin.user);
       },
     }
   );
@@ -54,7 +61,7 @@ export default function UserProvider({ children }: SigninProps) {
   if (error) return <ErrorMessage />;
   if (loading) return <Loading />;
 
-  if (!data?.signin?.token || !data?.signin?.user)
+  if (!user)
     return (
       <div>
         <h2>Log In</h2>
@@ -80,9 +87,5 @@ export default function UserProvider({ children }: SigninProps) {
       </div>
     );
 
-  return (
-    <UserContext.Provider value={data.signin.user}>
-      {children}
-    </UserContext.Provider>
-  );
+  return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
 }

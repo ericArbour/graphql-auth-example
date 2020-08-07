@@ -6,6 +6,7 @@ import {
   ApolloLink,
   HttpLink,
   makeVar,
+  concat,
 } from '@apollo/client';
 
 export const tokenRVar = makeVar<string>('');
@@ -27,7 +28,7 @@ const authLink = new ApolloLink((operation, forward) => {
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  link: httpLink,
+  link: concat(authLink, httpLink),
 });
 
 type GraphQLProviderProps = {
