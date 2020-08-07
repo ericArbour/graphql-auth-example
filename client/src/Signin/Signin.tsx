@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation, gql } from '@apollo/client';
 import Loading from '../Loading/Loading';
+import { ErrorMessage } from '../ErrorBoundary/ErrorBoundary';
 
 const signinMutation = gql`
   mutation Signin($input: SigninInput!) {
@@ -17,10 +18,9 @@ export default function Signin() {
   const [signin, { data, loading, error }] = useMutation(signinMutation);
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  console.log(data);
 
+  if (error) return <ErrorMessage />;
   if (loading) return <Loading />;
-  if (error) return <div>Oops, please refresh the page.</div>;
 
   return (
     <div>
