@@ -1,7 +1,9 @@
 import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import GraphQLProvider from '../GraphQLProvider/GraphQLProvider';
-import Signin from '../Signin/Signin';
+import UserProvider from '../UserProvider/UserProvider';
 import styles from './App.module.css';
 
 function App() {
@@ -12,7 +14,11 @@ function App() {
       </header>
       <ErrorBoundary>
         <GraphQLProvider>
-          <Signin />
+          <UserProvider>
+            <BrowserRouter>
+              <div>Test</div>
+            </BrowserRouter>
+          </UserProvider>
         </GraphQLProvider>
       </ErrorBoundary>
     </div>
