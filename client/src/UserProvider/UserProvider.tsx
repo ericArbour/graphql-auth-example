@@ -5,10 +5,12 @@ import { tokenRVar } from '../GraphQLProvider/GraphQLProvider';
 import { ErrorMessage } from '../ErrorBoundary/ErrorBoundary';
 import Loading from '../Loading/Loading';
 
+import styles from './UserProvider.module.css';
+
 export type User = {
   id: string;
   name: string;
-  privileges: string;
+  permissions: string;
 };
 
 type AuthUser = {
@@ -34,7 +36,7 @@ const signinMutation = gql`
       user {
         id
         name
-        privileges
+        permissions
       }
     }
   }
@@ -63,7 +65,7 @@ export default function UserProvider({ children }: SigninProps) {
 
   if (!user)
     return (
-      <div>
+      <div className={styles['login']}>
         <h2>Log In</h2>
         <form
           onSubmit={(e) => {

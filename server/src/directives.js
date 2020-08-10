@@ -2,9 +2,9 @@ const {
   SchemaDirectiveVisitor,
   AuthenticationError,
   ForbiddenError,
-} = require("apollo-server");
-const { defaultFieldResolver, GraphQLString } = require("graphql");
-const { formatDate } = require("./utils");
+} = require('apollo-server');
+const { defaultFieldResolver, GraphQLString } = require('graphql');
+const { formatDate } = require('./utils');
 
 class DateFormatDirective extends SchemaDirectiveVisitor {
   visitFieldDefinition(field) {
@@ -12,7 +12,7 @@ class DateFormatDirective extends SchemaDirectiveVisitor {
     const { defaultFormat } = this.args;
 
     field.args.push({
-      name: "format",
+      name: 'format',
       type: GraphQLString,
     });
 
@@ -20,7 +20,7 @@ class DateFormatDirective extends SchemaDirectiveVisitor {
       source,
       { format, ...otherArgs },
       context,
-      info,
+      info
     ) {
       const date = await resolve.call(this, source, otherArgs, context, info);
       return formatDate(date, format || defaultFormat);
@@ -33,15 +33,15 @@ class DateFormatDirective extends SchemaDirectiveVisitor {
 class AuthDirective extends SchemaDirectiveVisitor {
   visitFieldDefinition(field) {
     const { resolve = defaultFieldResolver } = field;
-    const { role, privilege } = this.args;
+    const { role, permission } = this.args;
 
     field.resolve = async function (source, args, context, info) {
-      if (!context.user) throw new AuthenticationError("must authenticate");
+      if (!context.user) throw new AuthenticationError('must authenticate');
       if (
         (role && role !== context.user.role) ||
-        (privilege && !context.user.privileges.includes(privilege))
+        (permission && !context.user.permissions.includes(permission))
       )
-        throw new ForbiddenError("not authorized");
+        throw new ForbiddenError('not authorized');
 
       return resolve.call(this, source, args, context, info);
     };

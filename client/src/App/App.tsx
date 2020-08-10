@@ -34,7 +34,7 @@ function App() {
               <Route path="/movies">
                 <Movies />
               </Route>
-              <ProtectedRoute privilege="TV" path="/shows">
+              <ProtectedRoute permission="TV" path="/shows">
                 <Shows />
               </ProtectedRoute>
             </BrowserRouter>

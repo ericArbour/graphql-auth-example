@@ -64,7 +64,7 @@ module.exports = {
         ...input,
         verified: false,
         avatar: 'http',
-        privileges: input.isAdvancedUser ? ['ADVANCED_MOVIES'] : [],
+        permissions: input.isAdvancedUser ? ['ADVANCED_MOVIES'] : [],
       });
       const token = createToken(user);
       return { token, user };

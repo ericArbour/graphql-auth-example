@@ -2,7 +2,7 @@ const gql = require('graphql-tag');
 
 module.exports = gql`
   directive @date(defaultFormat: String = "mmmm d, yyyy") on FIELD_DEFINITION
-  directive @auth(role: Role, privilege: Privilege) on FIELD_DEFINITION
+  directive @auth(role: Role, permission: Permission) on FIELD_DEFINITION
 
   scalar Date
 
@@ -17,7 +17,7 @@ module.exports = gql`
     GUEST
   }
 
-  enum Privilege {
+  enum Permission {
     ADVANCED_MOVIES
     TV
   }
@@ -32,7 +32,7 @@ module.exports = gql`
     posts: [Post]!
     role: Role!
     settings: Settings!
-    privileges: [Privilege!]!
+    permissions: [Permission!]!
   }
 
   type AuthUser {
@@ -71,7 +71,7 @@ module.exports = gql`
   type Movie {
     name: String!
     director: String!
-    rating: Int! @auth(privilege: ADVANCED_MOVIES)
+    rating: Int! @auth(permission: ADVANCED_MOVIES)
     createdAt: Date! @date
     createdBy: User!
   }
@@ -130,7 +130,7 @@ module.exports = gql`
     userSettings: Settings! @auth
     feed: [Post]!
     movies: [Movie!]! @auth
-    shows: [Show!]! @auth(privilege: TV)
+    shows: [Show!]! @auth(permission: TV)
   }
 
   type Mutation {

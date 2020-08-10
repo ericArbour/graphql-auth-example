@@ -5,20 +5,20 @@ import { RouteProps } from 'react-router-dom';
 import { useUserContext, User } from '../UserProvider/UserProvider';
 
 type ProtectedRouteProps = RouteProps & {
-  privilege: string;
+  permission: string;
 };
 
-function checkAuthorization(privilege: string, user: User): boolean {
-  return user.privileges.includes(privilege);
+function checkAuthorization(permission: string, user: User): boolean {
+  return user.permissions.includes(permission);
 }
 
 export default function ProtectedRoute({
-  privilege,
+  permission,
   children,
   ...rest
 }: ProtectedRouteProps) {
   const user = useUserContext();
-  const isAuthorized = checkAuthorization(privilege, user);
+  const isAuthorized = checkAuthorization(permission, user);
 
   return (
     <Route {...rest}>{isAuthorized ? children : <Redirect to="/" />}</Route>

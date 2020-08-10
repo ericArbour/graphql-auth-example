@@ -1,27 +1,28 @@
 {
   "users": [
     {
-      "email": "member@member.com",
+      "email": "a@a.com",
       "name": "Basic User",
-      "password": "password",
-      "role": "ADMIN",
+      "password": "a",
+      "role": "MEMBER",
       "verified": false,
       "avatar": "http",
       "createdAt": 1571213104370,
       "id": "Z2hlvDmLOSRZGebC_Z_aA",
       "isAdvancedUser": false,
-      "privileges": []
+      "permissions": []
     },
     {
-      "email": "test@test.com",
-      "password": "123",
+      "email": "b@b.com",
+      "name": "Advanced Movie User",
+      "password": "b",
       "role": "ADMIN",
       "verified": false,
       "avatar": "http",
       "createdAt": 1585333844574,
       "id": "uliE6l-z_gsKJVzdm0pms",
       "isAdvancedUser": true,
-      "privileges": ["ADVANCED_MOVIES"]
+      "permissions": ["ADVANCED_MOVIES"]
     }
   ],
   "posts": [
