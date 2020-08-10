@@ -69,6 +69,7 @@ module.exports = gql`
   }
 
   type Movie {
+    id: ID!
     name: String!
     director: String!
     rating: Int! @auth(permission: ADVANCED_MOVIES)
@@ -77,6 +78,7 @@ module.exports = gql`
   }
 
   type Show {
+    id: ID!
     name: String!
     showRunner: String!
     rating: Int!

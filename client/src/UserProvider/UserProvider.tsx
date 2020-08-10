@@ -7,7 +7,7 @@ import Loading from '../Loading/Loading';
 
 import styles from './UserProvider.module.css';
 
-export type User = {
+type User = {
   id: string;
   name: string;
   permissions: string[];
@@ -18,6 +18,10 @@ type AuthUser = {
   user: User;
 };
 
+function checkAuthorization(permission: string, user: User): boolean {
+  return user.permissions.includes(permission);
+}
+
 const UserContext = createContext<null | User>(null);
 
 export function useUserContext() {
@@ -27,6 +31,11 @@ export function useUserContext() {
     throw new Error('UserContext consumer used outside of provider.');
 
   return maybeUser;
+}
+
+export function useIsAuthorized(permission: string): boolean {
+  const user = useUserContext();
+  return checkAuthorization(permission, user);
 }
 
 const signinMutation = gql`

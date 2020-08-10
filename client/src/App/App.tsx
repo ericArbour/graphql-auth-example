@@ -1,10 +1,11 @@
 import React from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import GraphQLProvider from '../GraphQLProvider/GraphQLProvider';
 import UserProvider from '../UserProvider/UserProvider';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import ProtectedLink from '../ProtectedLink/ProtectedLink';
 import Home from '../Home/Home';
 import Movies from '../Movies/Movies';
 import Shows from '../Shows/Shows';
@@ -21,22 +22,23 @@ function App() {
           <UserProvider>
             <BrowserRouter>
               <Home />
-              <nav>
-                <ul>
-                  <li>
-                    <Link to="/movies">Movies</Link>
-                  </li>
-                  <li>
-                    <Link to="/shows">Shows</Link>
-                  </li>
-                </ul>
+              <nav className={styles['nav']}>
+                <Link to="/movies">Movies</Link>
+                <ProtectedLink permission="TV" to="/shows">
+                  Shows
+                </ProtectedLink>
               </nav>
-              <Route path="/movies">
-                <Movies />
-              </Route>
-              <ProtectedRoute permission="TV" path="/shows">
-                <Shows />
-              </ProtectedRoute>
+              <Switch>
+                <Route path="/movies">
+                  <Movies />
+                </Route>
+                <ProtectedRoute permission="TV" path="/shows">
+                  <Shows />
+                </ProtectedRoute>
+                <Route path="/">
+                  <h4>Dashboard</h4>
+                </Route>
+              </Switch>
             </BrowserRouter>
           </UserProvider>
         </GraphQLProvider>

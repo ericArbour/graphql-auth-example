@@ -1,10 +1,8 @@
 .app {
   text-align: center;
-  background-color: #282c34;
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
   color: white;
-  --other: #61dafb;
 }
 
 .app-header {
@@ -12,4 +10,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--other);
+  border: 1px solid var(--other);
+  padding: 0.5em 1em 0.5em 1em;
 }
