@@ -10,7 +10,7 @@ import styles from './UserProvider.module.css';
 export type User = {
   id: string;
   name: string;
-  permissions: string;
+  permissions: string[];
 };
 
 type AuthUser = {
