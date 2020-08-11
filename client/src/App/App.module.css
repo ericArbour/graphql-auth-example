@@ -21,5 +21,6 @@
   text-decoration: none;
   color: var(--other);
   border: 1px solid var(--other);
-  padding: 0.5em 1em 0.5em 1em;
+  padding: 0.5em 1em;
+  margin: 0 0.5em;
 }

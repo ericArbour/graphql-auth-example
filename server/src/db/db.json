@@ -16,13 +16,37 @@
       "email": "b@b.com",
       "name": "Advanced Movie User",
       "password": "b",
-      "role": "ADMIN",
+      "role": "MEMBER",
       "verified": false,
       "avatar": "http",
       "createdAt": 1585333844574,
       "id": "uliE6l-z_gsKJVzdm0pms",
       "isAdvancedUser": true,
       "permissions": ["ADVANCED_MOVIES"]
+    },
+    {
+      "email": "c@c.com",
+      "name": "TV User",
+      "password": "c",
+      "role": "MEMBER",
+      "verified": false,
+      "avatar": "http",
+      "createdAt": 1585333844574,
+      "id": "ulis6ldz_gsJJVGdm08m1",
+      "isAdvancedUser": false,
+      "permissions": ["TV"]
+    },
+    {
+      "email": "d@d.com",
+      "name": "Super User",
+      "password": "d",
+      "role": "ADMIN",
+      "verified": false,
+      "avatar": "http",
+      "createdAt": 1585333844574,
+      "id": "lskdjfl3lkijooz_gsJJ2",
+      "isAdvancedUser": true,
+      "permissions": ["TV", "ADVANCED_MOVIES"]
     }
   ],
   "posts": [
@@ -66,5 +90,27 @@
       "id": "TesACblFcw3LWfYrk9i7D"
     }
   ],
-  "shows": []
+  "shows": [
+    {
+      "name": "The Sopranos",
+      "showRunner": "David Chase",
+      "createdAt": 1595962228417,
+      "createdBy": "Z2hlvDmLOSRZGebC_Z_aA",
+      "id": "P8s8C8lF8w1L8fYr89iX8"
+    },
+    {
+      "name": "Seinfeld",
+      "showRunner": "Larry David",
+      "createdAt": 1595962228417,
+      "createdBy": "Z2hlvDmLOSRZGebC_Z_aA",
+      "id": "2W3A4U5F6w7LW8Yr99iJD"
+    },
+    {
+      "name": "Curb Your Enthusiasm",
+      "showRunner": "Larry David",
+      "createdAt": 1595962228417,
+      "createdBy": "Z2hlvDmLOSRZGebC_Z_aA",
+      "id": "9e8A7b6F5w4L3f2r19i7D"
+    }
+  ]
 }

@@ -81,7 +81,6 @@ module.exports = gql`
     id: ID!
     name: String!
     showRunner: String!
-    rating: Int!
     createdAt: Date! @date
     createdBy: User!
   }
